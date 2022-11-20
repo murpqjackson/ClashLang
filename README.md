@@ -10,7 +10,7 @@ Shut up, I don't remember asking.
 
 Anywho, here's a programming language with syntax based on *clash royale* terminology:
 ```
-do rocket bait deck with xbow
+rocket bait deck with xbow
     witch defends giant
     predict xbow        // Hehehehaw 😂
     golem ignores sparky
@@ -98,7 +98,7 @@ Speaking of popping, we can only display characters we pop off the top of the ar
 
 If you want to display multiple characters, you need to `emote` multiple times. `emote`'s just can't convey that much information. Here's a function to print a string that's stored "upside-down" in `elixir`'s array:
 ```
-do giant beatdown deck
+giant beatdown deck
     predict skarmy
     nerf skarmy
     cycle giant
@@ -133,7 +133,7 @@ If you were disappointed by the options for control flow, light your toes on fir
 
 You've probably noticed that to explain how you do a deck, you start `do <deck name> deck`. `deck` names are two part, the main card and the deck type. There are three deck types to choose from, `bait`, `beatdown`, and `control`, for a total of 3 * 24 possible `deck` names (any of the 24 cards can be a main card). I was cool with when you could only store 3 decks, so 72 should be plenty.
 
-If you want parameters, you're gonna say `do <deckname> deck with <card1>, <card2>, ...`. Here's where things get interesting. Inside a function, you can use all of the cards, *but they won't be the same ones as outside the deck*. What happens in the deck stays in the deck. If you make a `deck with giant`, `giant` will be whatever value the `deck` is ran with. Another card, like `princess` will be its default 3.
+If you want parameters, you're gonna say `<deckname> deck with <card1>, <card2>, ...`. Here's where things get interesting. Inside a function, you can use all of the cards, *but they won't be the same ones as outside the deck*. What happens in the deck stays in the deck. If you make a `deck with giant`, `giant` will be whatever value the `deck` is ran with. Another card, like `princess` will be its default 3.
 
 Memory functions and I/O still work normally, though, and `elixir` is always `elixir` no matter what `deck` you play.
 
