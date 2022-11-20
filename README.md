@@ -39,15 +39,16 @@ Now on the other hand, if you say `golem`, I immediately know how much elixir we
 Now admittedly, we sometimes need numbers outside the 1-9 range, so all of these cards are able to hold any number, integer or decimal. Specifically, their value is represented by a JavaScript `Number`, a double-precision float equivalent to C's `double` or Rust's `f64`.
 
 Of course you can't just set cards to ugly number literals. Instead, you can derive any number you need by interacting with a card or having cards interact with each other. The posible interactions are as follows:
-| Interaction              | Effect                                 | Equivalent ugly code 🤮 |
-|--------------------------|----------------------------------------|------------------------|
-| buff <card>              | Card's value is incremented            | `card++`               |
-| nerf <card>              | Card's value is decremented            | `card--`               |
-| predict <card>           | Card's value is zeroed                 | `card = 0`             |
-| <card1> defends <card2>  | Card2's value is added to Card1        | `card1 += card2`       |
-| <card1> kills <card2>    | Card2's value is subtracted from Card1 | `card1 -= card2`       |
-| <card1> ignores <card2>  | Card2's value is multiplied to Card1   | `card1 *= card2`       |
-| <card1> counters <card2> | Card2's value is divided from Card     | `card1 /= card2`       |
+| Interaction                | Effect                                   | Equivalent ugly code 🤮 |
+|----------------------------|------------------------------------------|------------------------|
+| `buff <card>`              | Card's value is incremented              | `card++`               |
+| `nerf <card>`              | Card's value is decremented              | `card--`               |
+| `predict <card>`           | Card's value is zeroed                   | `card = 0`             |
+| `<card> op`                | Negative card values are brought to zero | `card = max(card, 0)`  |
+| `<card1> defends <card2>`  | Card2's value is added to Card1          | `card1 += card2`       |
+| `<card1> kills <card2>`    | Card2's value is subtracted from Card1   | `card1 -= card2`       |
+| `<card1> ignores <card2>`  | Card2's value is multiplied to Card1     | `card1 *= card2`       |
+| `<card1> counters <card2>` | Card2's value is divided from Card1      | `card1 /= card2`       |
 
 > Okay, so you have 24 pre-named variables to use?
 
@@ -74,10 +75,10 @@ Ten arrays is too many, so we only work with one array at a time. We use `elixir
 When working with an array, we can't mess with it all willy-nilly. We are refined men of Clash. You can peer down if you must, but otherwise you can only add numbers by pushing them on top and remove them by popping them off the top. Here's all of the commands you can use (remember they all operate on our `elixir`'s array):
 | Command | Effect | Don't even ❌ |
 |---|---|---|
-| play <card> | Pops the top number into card | `card = array.pop()` |
-| spam <card> | Pushes card's value on top | `array.push(card)` |
-| elixir for <card> | Sets card's value to the array's size | `card = array.length` |
-| <card1> kites <card2> | Sets card1's value to the number at the position in card2d | `card1 = array[card2]` |
+| `play <card>` | Pops the top number into card | `card = array.pop()` |
+| `spam <card>` | Pushes card's value on top | `array.push(card)` |
+| `elixir for <card>` | Sets card's value to the array's size | `card = array.length` |
+| `<card1> kites <card2>` | Sets card1's value to the number at the position in card2d | `card1 = array[card2]` |
 
 Do note that if you try to pop a value off an empty array or peek at a spot in the array that doesn't exist, you'll just get zero.
 
@@ -160,7 +161,7 @@ Ugh, fine, I guess I will allow you to use some non-clash-terminology to embed t
 
 Now we can use our string to our heart's content.
 
-# Not on Punctuation
+# Note on Punctuation
 
 You've probably guessed that you can write comments with `//`. Anything on a line after a `//` will be ignored. You can use newlines to split your commands (and you can leave lines blank, of course), but you can also put multiple commands on one line seperated by a `,`, like
 ```
